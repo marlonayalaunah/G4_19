@@ -37,7 +37,7 @@
         break;    
 
         case "UpdateMaterial":
-            $datos=$materiales->update_material($body["ID"], $body["COSTO"], $body["PRECIO"], $body["APLICA_ISV"], $body["PORCENTAJE_ISV"], $body["ESTADO"], $body["ID_SOCIO"]);
+            $datos=$materiales->update_material($body["ID"], $body["DESCRIPCION"],$body["UNIDAD"],$body["COSTO"], $body["PRECIO"], $body["APLICA_ISV"], $body["PORCENTAJE_ISV"], $body["ESTADO"], $body["ID_SOCIO"]);
             echo json_encode("Material Actualizado Exitosamente");
         break;
 

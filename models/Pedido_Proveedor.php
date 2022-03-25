@@ -1,8 +1,8 @@
 <?php
 
-    class Proveedores extends Conectar{
+    class Pedidos_Proveedores extends Conectar{
 
-        public function get_proveedores(){
+        public function get_pedidos_proveedores(){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="SELECT * FROM ma_pedidos_proveedor ";
@@ -11,7 +11,7 @@
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function get_proveedor($id){
+        public function get_pedido_proveedor($id){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="SELECT * FROM ma_pedidos_proveedor WHERE ID = ?";
@@ -21,7 +21,7 @@
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function insert_socio($id_socio, $fecha_pedido, $detalle, $sub_total, $total_isv, $total, $fecha_entrega, $estado){
+        public function InsertPedido($id_socio, $fecha_pedido, $detalle, $sub_total, $total_isv, $total, $fecha_entrega, $estado){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="INSERT INTO ma_pedidos_proveedor(ID_SOCIO,FECHA_PEDIDO,DETALLE,SUB_TOTAL,TOTAL_ISV,TOTAL,FECHA_ENTREGA,ESTADO)
@@ -40,7 +40,7 @@
             
         }
 
-        public function update_proveedor($id,$id_socio, $fecha_pedido, $detalle, $sub_total, $total_isv, $total, $fecha_entrega, $estado){
+        public function update_pedido_proveedor($id,$id_socio, $fecha_pedido, $detalle, $sub_total, $total_isv, $total, $fecha_entrega, $estado){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="UPDATE ma_pedidos_proveedor SET ID_SOCIO=?,  FECHA_PEDIDO=?, DETALLE=?, SUB_TOTAL=?, TOTAL_ISV=?, TOTAL=?, FECHA_ENTREGA=?,ESTADO=?
@@ -59,7 +59,7 @@
             return $resultado=$sql->fetchAll(PDO::FETCH_ASSOC);
         }
 
-        public function delete_proveedor($ID){
+        public function delete_pedido_proveedor($ID){
             $conectar= parent::conexion();
             parent::set_names();
             $sql="DELETE FROM ma_pedidos_proveedor WHERE ID=?";

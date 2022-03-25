@@ -13,36 +13,36 @@
 
     require_once("../config/conexion.php");
     require_once("../models/Pedido_Proveedor.php");
-    $Proveedores = new Proveedores();
+    $Pedido_Proveedores = new Pedidos_Proveedores();
     
 
     $body = json_decode(file_get_contents("php://input"), true);
 
     switch ($_GET["op"]) {
 
-        case 'GetProveedores':
-            $datos =$Proveedores->get_proveedores();
+        case 'GetPedidosProveedores':
+            $datos =$Pedido_Proveedores->get_pedidos_proveedores();
             echo json_encode($datos);
             break;
         
-        case 'GetProveedor':
-            $datos =$Proveedores->get_proveedor($body["ID"]);
+        case 'GetPedidoProveedor':
+            $datos =$Pedido_Proveedores->get_pedido_proveedor($body["ID"]);
             echo json_encode($datos);
             break;
 
-        case 'InsertSocio':
-            $datos=$Proveedores->insert_socio($body["ID_SOCIO"],$body["FECHA_PEDIDO"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body["FECHA_ENTREGA"],$body["ESTADO"]);
-            echo json_encode("Proveedor Agregado");
+        case 'InsertPedido':
+            $datos=$Pedido_Proveedores->InsertPedido($body["ID_SOCIO"],$body["FECHA_PEDIDO"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body["FECHA_ENTREGA"],$body["ESTADO"]);
+            echo json_encode("Pedido Agregado");
             break;
 
-        case 'UpdateProveedor':
-            $datos=$Proveedores->update_proveedor($body["ID"],$body["ID_SOCIO"],$body["FECHA_PEDIDO"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body["FECHA_ENTREGA"],$body["ESTADO"]);
-            echo json_encode("Proveedor Actualizado");
+        case 'UpdatePedidoProveedor':
+            $datos=$Pedido_Proveedores->update_pedido_proveedor($body["ID"],$body["ID_SOCIO"],$body["FECHA_PEDIDO"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body["FECHA_ENTREGA"],$body["ESTADO"]);
+            echo json_encode("Pedido Actualizado");
             break;
 
-        case 'DeleteProveedor':
-            $datos=$Proveedores->delete_proveedor($body["ID"]);
-            echo json_encode("Proveedor Eliminado");
+        case 'DeletePedidoProveedor':
+            $datos=$Pedido_Proveedores->delete_pedido_proveedor($body["ID"]);
+            echo json_encode("Pedido Eliminado");
             break;
  
     }
